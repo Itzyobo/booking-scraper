@@ -1,0 +1,19 @@
+{
+  "name": "booking-scraper",
+  "version": "1.0.0",
+  "description": "Scrape rating et nombre d'avis de 7 hotels Booking.com",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "node scraper.js"
+  },
+  "keywords": [
+    "scraping",
+    "booking",
+    "playwright"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "playwright": "^1.48.0"
+  }
+}

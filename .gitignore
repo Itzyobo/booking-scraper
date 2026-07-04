@@ -1,0 +1,15 @@
+# Dépendances (trop lourdes pour GitHub, reinstallées par npm install)
+node_modules/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Cache Playwright
+/cache
+
+# OS / éditeurs
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

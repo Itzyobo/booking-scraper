@@ -1,0 +1,75 @@
+# =============================================================================
+# Booking.com Scraper — GitHub Actions
+# =============================================================================
+# Exécute scraper.js une fois par semaine (mardi 03h42 UTC) de façon discrète,
+# puis commit + push automatiquement le hotels.json mis à jour sur le dépôt.
+# =============================================================================
+
+name: Weekly Booking Scrape
+
+# ---------------------------------------------------------------------------
+# DÉCLENCHEURS
+# ---------------------------------------------------------------------------
+# 1) Cron : mardi à 03h42 UTC (= heure impaire/asymétrique pour rester discret).
+#          GitHub recommande de NE PAS utiliser des heures pleines (minuit pile,
+#          etc.) car des milliers de workflows s'exécutent à ces moments et cela
+#          charge les runners. "42" est volontairement "irrégulier".
+on:
+  schedule:
+    - cron: "42 3 * * 2"   # minute heure jour mois jour_semaine
+                          #  42   3    *    *    2   -> mardi 03:42 UTC
+  # 2) Permet aussi de le déclencher manuellement depuis l'onglet "Actions"
+  workflow_dispatch:
+
+# ---------------------------------------------------------------------------
+# PERMISSIONS — indispensables pour que le bot puisse commit & push
+# ---------------------------------------------------------------------------
+permissions:
+  contents: write          # droit d'écrire (commit) sur le dépôt
+
+# ---------------------------------------------------------------------------
+# JOB
+# ---------------------------------------------------------------------------
+jobs:
+  scrape:
+    runs-on: ubuntu-latest   # gratuit (GitHub Free : 2000 min/mois)
+
+    steps:
+      # 1) Récupère le code du dépôt (avec l'historique Git complet pour
+      #    permettre au commit/push de fonctionner correctement).
+      - name: 📥 Checkout du dépôt
+        uses: actions/checkout@v4
+
+      # 2) Installe Node.js (LTS). On met aussi en cache npm pour accélérer
+      #    les exécutions suivantes.
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      # 3) Installe les dépendances (playwright) déclarées dans package.json.
+      - name: 📦 Installation des dépendances
+        run: npm ci
+
+      # 4) Installe les binaires navigateur de Playwright (Chromium headless).
+      #    --with-deps = installe aussi les libs système dont Chromium a
+      #    besoin sur Ubuntu (polices, libGL, etc.) — obligatoire en CI.
+      - name: 🎭 Installation de Chromium pour Playwright
+        run: npx playwright install --with-deps chromium
+
+      # 5) Lance le scraper -> génère/met à jour hotels.json
+      - name: 🕷️ Exécution du scraper
+        run: node scraper.js
+
+      # 6) Commit + push du hotels.json mis à jour.
+      #    On ne versionne PAS node_modules (le .gitignore s'en charge).
+      #    Si rien n'a changé, le commit est skippé automatiquement.
+      - name: 💾 Commit & push de hotels.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add hotels.json
+          # On commit uniquement s'il y a un changement (évite les erreurs).
+          git commit -m "chore: mise à jour automatique des notes Booking [skip ci]" || echo "ℹ️  Rien à committer (hotels.json inchangé)."
+          git push
