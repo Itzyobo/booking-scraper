@@ -51,6 +51,16 @@ const HOTELS = {
     "https://www.booking.com/hotel/sa/doubletree-by-hilton-makkah-jabal-omar.fr.html?aid=2405329&label=brave_brand_organic_trigger_33bbf676-98fd-4780-a85d-abfc75863c4c_0&sid=ed0c990fde61572d978232e6e7d3f889&dest_id=-3096949&dest_type=city&dist=0&group_adults=2&group_children=0&hapos=1&hpos=1&no_rooms=1&req_adults=2&req_children=0&room1=A%2CA&sb_price_type=total&sr_order=popularity&srepoch=1783194883&srpvid=20578c0455281182&type=total&ucfs=1&",
   hotel_7_EBAA:
     "https://www.booking.com/searchresults.fr.html?aid=2405329&label=brave_brand_organic_trigger_33bbf676-98fd-4780-a85d-abfc75863c4c_0&highlighted_hotels=8668530&redirected=1&city=-3096949&hlrd=no_dates&source=hotel&expand_sb=1&keep_landing=1&sid=ed0c990fde61572d978232e6e7d3f889",
+  hotel_8_dar_imam:
+    "https://www.booking.com/hotel/sa/dar-al-iman-intercontinental.fr.html",
+  hotel_9_sofitel:
+    "https://www.booking.com/hotel/sa/shahd-al-madina-managed-by-accor.fr.html",
+  hotel_10_dar_al_tawhid:
+    "https://www.booking.com/hotel/sa/dar-al-tawhid-intercontinental-makkah.fr.html",
+  hotel_11_raffles:
+    "https://www.booking.com/hotel/sa/raffles-makkah-palace.fr.html",
+  hotel_12_fairmont:
+    "https://www.booking.com/hotel/sa/makkah-clock-royal-tower-a-fairmont.fr.html",
 };
 
 // ---------------------------------------------------------------------------
