@@ -1,50 +1,50 @@
 {
   "hotel_1_Rotana": {
     "rating": "8.7",
-    "count": "7586"
+    "count": "7650"
   },
   "hotel_2_Movenpick": {
     "rating": "8.2",
-    "count": "9923"
+    "count": "9851"
   },
   "hotel_3_NuskAlHijrah": {
-    "rating": "7.2",
-    "count": "9966"
+    "rating": "9.1",
+    "count": "1460"
   },
   "hotel_4_makkah": {
     "rating": "9.7",
-    "count": "7040"
+    "count": "6998"
   },
   "hotel_5_conrad": {
     "rating": "9.4",
-    "count": "5665"
+    "count": "5653"
   },
   "hotel_6_DoubleTree": {
     "rating": "8.2",
-    "count": "9217"
+    "count": "9219"
   },
   "hotel_7_EBAA": {
     "rating": "8.1",
-    "count": "4411"
+    "count": "4365"
   },
   "hotel_8_dar_imam": {
     "rating": "9.7",
-    "count": "5122"
+    "count": "5085"
   },
   "hotel_9_sofitel": {
     "rating": "9.6",
-    "count": "6086"
+    "count": "6080"
   },
   "hotel_10_dar_al_tawhid": {
     "rating": "9.8",
-    "count": "3665"
+    "count": "3639"
   },
   "hotel_11_raffles": {
     "rating": "9.6",
-    "count": "2318"
+    "count": "2305"
   },
   "hotel_12_fairmont": {
     "rating": "9.5",
-    "count": "17371"
+    "count": "17260"
   }
 }
