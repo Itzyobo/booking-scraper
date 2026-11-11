@@ -61,6 +61,8 @@ const HOTELS = {
     "https://www.booking.com/hotel/sa/raffles-makkah-palace.fr.html",
   hotel_12_fairmont:
     "https://www.booking.com/hotel/sa/makkah-clock-royal-tower-a-fairmont.fr.html",
+  hotel_13_taj_barak:
+    "https://www.booking.com/hotel/sa/fndq-tj-brk.fr.html",
 };
 
 // ---------------------------------------------------------------------------
